@@ -20,6 +20,8 @@ class SongController (val service: SongService){
 
     @GetMapping("/song/random")
     fun getRandomSong(): String{
+        val song = service.getRandomSong()
+
         return """
             <!DOCTYPE html>
             <html>
@@ -32,10 +34,10 @@ class SongController (val service: SongService){
                 추천 노래
               </div>
               <div class="card-body">
-                <h5 class="card-title">사랑에 연습이 있었다면</h5>
-                <p class="card-text">임재현</p>
+                <h5 class="card-title">${song.title}</h5>
+                <p class="card-text">${song.singer}</p>
                 <a 
-                    href="https://www.youtube.com/results?search_query=노래방+사랑에 연습이 있었다면" 
+                    href="https://www.youtube.com/results?search_query=${song.title}" 
                     class="btn btn-primary">
                     노래방
                 </a>

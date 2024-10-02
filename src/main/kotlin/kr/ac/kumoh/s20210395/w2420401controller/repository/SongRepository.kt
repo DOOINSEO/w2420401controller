@@ -12,4 +12,7 @@ class SongRepository {
     )
 
     fun fetchSong() = songs
+    fun getSong(index: Int) = songs[index]
+    val songsSize: Int
+        get() = songs.size
 }
